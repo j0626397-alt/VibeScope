@@ -2,9 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
-from database.mongodb import connect_db, disconnect_db
-from routes.analyze import router as analyze_router
-from routes.posts import router as posts_router
+from backend.database.mongodb import connect_db, disconnect_db
+from backend.routes.analyze import router as analyze_router
+from backend.routes.posts import router as posts_router
 
 
 @asynccontextmanager
