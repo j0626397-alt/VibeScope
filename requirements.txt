@@ -9,7 +9,7 @@ pydantic==2.9.2
 
 # ML / NLP
 transformers==4.47.0
-torch==2.6.0
+torch==2.2.2
 scipy>=1.14.0
 beautifulsoup4==4.12.3
 langdetect==1.0.9
