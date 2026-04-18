@@ -8,7 +8,7 @@ import os
 import asyncio
 from datetime import datetime, timedelta
 
-# Add ml-service to path
+# Add ml_service to path
 ML_PATH = os.path.join(os.path.dirname(__file__), "../../ml_service")
 sys.path.insert(0, ML_PATH)
 
