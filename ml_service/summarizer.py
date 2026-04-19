@@ -16,6 +16,7 @@ def generate_summary(
     sentiment_dist: Dict[str, float],
     emotion_dist: Dict[str, float],
 ) -> str:
+    return _rule_based_summary(query, sentiment_dist, emotion_dist, len(posts))
     """Generate narrative summary — BART first, rule-based fallback."""
     try:
         return _bart_summarize(query, posts, sentiment_dist)

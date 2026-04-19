@@ -34,6 +34,17 @@ app.add_middleware(
 app.include_router(analyze_router, prefix="/api", tags=["analyze"])
 app.include_router(posts_router, prefix="/api", tags=["posts"])
 
+@app.on_event("startup")
+async def preload_models():
+    print("Loading ML models...")
+
+    from ml_service.sentiment_model import _load_model
+    _load_model()
+
+    from ml_service.emotion_detector import _load_emotion_pipeline
+    _load_emotion_pipeline()
+
+    print("Models loaded successfully")
 
 @app.get("/")
 async def root():
