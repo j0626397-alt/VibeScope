@@ -9,8 +9,8 @@ import asyncio
 from datetime import datetime, timedelta
 
 # Add ml_service to path
-ML_PATH = os.path.join(os.path.dirname(__file__), "../../ml_service")
-sys.path.insert(0, ML_PATH)
+# ML_PATH = os.path.join(os.path.dirname(__file__), "../../ml_service")
+# sys.path.insert(0, ML_PATH)
 
 from fastapi import APIRouter, HTTPException
 from backend.database.models import AnalyzeRequest, AnalyzeResponse
@@ -28,7 +28,7 @@ def _filter_posts_for_language(posts: list) -> list:
     Filter posts to keep only valid English posts.
     Runs in executor to avoid blocking the event loop.
     """
-    from language_filter import filter_posts
+    from ml_service.language_filter import filter_posts
     
     filtered_posts, filtered_count = filter_posts(posts)
     print(f"[Analyze] Language filter: {len(posts)} posts -> {len(filtered_posts)} posts (removed {filtered_count})")
@@ -43,10 +43,10 @@ def _run_ml_pipeline(all_posts: list, query: str) -> dict:
       - j-hartmann/emotion-english-distilroberta-base (pipeline)
       - NLTK keyword extraction
     """
-    from sentiment_model import analyze_sentiment, compute_sentiment_distribution
-    from emotion_detector import detect_emotion, compute_emotion_distribution
-    from keyword_extractor import extract_keywords_nltk, build_wordcloud_data
-    from summarizer import generate_summary
+    from ml_service.sentiment_model import analyze_sentiment, compute_sentiment_distribution
+    from ml_service.emotion_detector import detect_emotion, compute_emotion_distribution
+    from ml_service.keyword_extractor import extract_keywords_nltk, build_wordcloud_data
+    from ml_service.summarizer import generate_summary
 
     # ── 1. Sentiment ────────────────────────────────────────────────
     print(f"[Pipeline] Running sentiment on {len(all_posts)} posts ...")
