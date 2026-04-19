@@ -1,3 +1,6 @@
+# Use CPU-only PyTorch wheels
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 # Backend
 fastapi==0.111.0
 uvicorn[standard]==0.30.1
@@ -9,7 +12,8 @@ pydantic==2.9.2
 
 # ML / NLP
 transformers==4.47.0
-torch==2.2.2
+torch==2.2.2+cpu
+numpy==1.26.4
 scipy>=1.14.0
 beautifulsoup4==4.12.3
 langdetect==1.0.9
@@ -20,5 +24,4 @@ google-api-python-client==2.133.0
 # Utilities
 tqdm==4.66.4
 pandas>=2.3.0
-
 nltk
