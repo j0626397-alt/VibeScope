@@ -136,7 +136,7 @@ async def analyze(request: AnalyzeRequest):
     print(f"[Analyze] Total posts collected: {len(all_posts)}")
 
     # ── Language filtering (off event loop) ──────────────────────────
-    loop = asyncio.get_event_loop()
+    loop = asyncio.get_running_loop()
     all_posts = await loop.run_in_executor(None, _filter_posts_for_language, all_posts)
 
     if not all_posts:
