@@ -7,7 +7,7 @@ Falls back to realistic varied mock data.
 import asyncio
 import aiohttp
 from typing import List, Dict
-from pipeline.data_cleaning import clean_text, is_valid_text
+from backend.pipeline.data_cleaning import clean_text, is_valid_text
 
 HN_BASE = "https://hacker-news.firebaseio.com/v0"
 

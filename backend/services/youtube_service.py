@@ -6,7 +6,7 @@ Falls back to realistic mock data when no API key is set.
 import os
 import asyncio
 from typing import List, Dict
-from pipeline.data_cleaning import clean_text, is_valid_text
+from backend.pipeline.data_cleaning import clean_text, is_valid_text
 
 YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY", "")
 

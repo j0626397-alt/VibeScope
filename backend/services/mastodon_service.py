@@ -8,7 +8,7 @@ import asyncio
 import aiohttp
 from typing import List, Dict
 from bs4 import BeautifulSoup
-from pipeline.data_cleaning import clean_text, is_valid_text
+from backend.pipeline.data_cleaning import clean_text, is_valid_text
 
 MASTODON_INSTANCE = "https://mastodon.social"
 MASTODON_TOKEN = os.getenv("MASTODON_TOKEN", "")

@@ -7,7 +7,7 @@ import os
 import asyncio
 import aiohttp
 from typing import List, Dict
-from pipeline.data_cleaning import clean_text, is_valid_text
+from backend.pipeline.data_cleaning import clean_text, is_valid_text
 
 NEWS_API_KEY = os.getenv("NEWS_API_KEY", "")
 NEWS_API_URL = "https://newsapi.org/v2/everything"

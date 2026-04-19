@@ -15,10 +15,10 @@ sys.path.insert(0, ML_PATH)
 from fastapi import APIRouter, HTTPException
 from backend.database.models import AnalyzeRequest, AnalyzeResponse
 from backend.database.mongodb import get_db
-from services.youtube_service import fetch_youtube_posts
-from services.mastodon_service import fetch_mastodon_posts
-from services.news_service import fetch_news_posts
-from services.hackernews_service import fetch_hackernews_posts
+from backend.services.youtube_service import fetch_youtube_posts
+from backend.services.mastodon_service import fetch_mastodon_posts
+from backend.services.news_service import fetch_news_posts
+from backend.services.hackernews_service import fetch_hackernews_posts
 
 router = APIRouter()
 
