@@ -13,8 +13,8 @@ ML_PATH = os.path.join(os.path.dirname(__file__), "../../ml_service")
 sys.path.insert(0, ML_PATH)
 
 from fastapi import APIRouter, HTTPException
-from database.models import AnalyzeRequest, AnalyzeResponse
-from database.mongodb import get_db
+from backend.database.models import AnalyzeRequest, AnalyzeResponse
+from backend.database.mongodb import get_db
 from services.youtube_service import fetch_youtube_posts
 from services.mastodon_service import fetch_mastodon_posts
 from services.news_service import fetch_news_posts
