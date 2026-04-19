@@ -6,6 +6,8 @@ from backend.database.mongodb import connect_db, disconnect_db
 from backend.routes.analyze import router as analyze_router
 from backend.routes.posts import router as posts_router
 
+import os
+import uvicorn
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -41,3 +43,8 @@ async def root():
 @app.get("/health")
 async def health():
     return {"status": "healthy"}
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("backend.main:app", host="0.0.0.0", port=port)
